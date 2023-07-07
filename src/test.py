@@ -4,6 +4,7 @@ from espnet_model_zoo.downloader import ModelDownloader
 from espnet2.bin.asr_inference import Speech2Text
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+print(device)
 
 speech2text = Speech2Text.from_pretrained(
     "reazon-research/reazonspeech-espnet-v1",
