@@ -1,5 +1,9 @@
 FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
+ENV \
+  PYTHONUNBUFFERED=1 \
+  PYTHONDONTWRITEBYTECODE=1
+
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     git \
