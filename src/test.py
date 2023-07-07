@@ -1,6 +1,5 @@
-import soundfile
+import librosa
 import torch
-from espnet_model_zoo.downloader import ModelDownloader
 from espnet2.bin.asr_inference import Speech2Text
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -13,7 +12,7 @@ speech2text = Speech2Text.from_pretrained(
     device=device
 )
 
-speech, _ = soundfile.read("samplesound.wav")
+speech, _ = librosa.load("samplesound.wav", sr=16000)
 nbests = speech2text(speech)
 text, *_ = nbests[0]
 print(text)
